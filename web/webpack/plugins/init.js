@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 // plugins used in dev and production
@@ -17,4 +18,9 @@ module.exports = [
       hash: true,
     },
   }),
+  new CopyWebpackPlugin([
+    {
+      from: 'web/src/extras',
+    },
+  ]),
 ];
