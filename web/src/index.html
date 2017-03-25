@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta charset="UTF-8" name="referrer" content="no-referrer">
+  <title>Portfolio Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  .Select-menu-outer {
+    z-index: 500 !important;
+  }
+  .pt-tab {
+    padding: 3px 10px;
+    background: #f8f8f8;
+    border-top-right-radius: 10px !important;
+    border-top-left-radius: 10px !important;
+    top: 1px;
+    z-index: 15;
+  }
+  .pt-tab-indicator-wrapper {
+    display: none;
+  }
+  .pt-tab-indicator-wrapper ~ .pt-tab[aria-selected="true"] {
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1) !important;
+    position: relative;
+    overflow: visible;
+  }
+  .pt-tab-indicator-wrapper ~ .pt-tab[aria-selected="true"]:after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    display: block;
+    background-color: #fff;
+  }
+  .pt-tab-panel {
+    margin-top: 0 !important;
+  }
+  </style>
+  <script>
+        (function () {
+            if (typeof require === 'function') {
+                var gui = require('nw.gui');
+                var win = gui.Window.get();
+
+                // Create default menu items for OSX
+                if (process.platform === 'darwin') {
+                    var mb = new gui.Menu({ type: "menubar" });
+                    mb.createMacBuiltin(gui.App.manifest.productName);
+                    win.menu = mb;
+                }
+            }
+        }());
+    </script>
+</head>
+<body style="background-color: #EBF1F5">
+  <div id="container"></div>
+</body>
+</html>

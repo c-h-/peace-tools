@@ -1,0 +1,46 @@
+{
+  "defs": [
+    {
+      "name": "Stock",
+      "enum": 0,
+      "t_types": [
+        {
+          "name": "Buy",
+          "enum": 0
+        },
+        {
+          "name": "Sell",
+          "enum": 1
+        }
+      ]
+    },
+    {
+      "name": "Currency",
+      "enum": 1,
+      "t_types": [
+        {
+          "name": "Deposit",
+          "enum": 0
+        },
+        {
+          "name": "Withdraw",
+          "enum": 1
+        }
+      ]
+    },
+    {
+      "name": "ETF",
+      "enum": 0,
+      "t_types": [
+        {
+          "name": "Buy",
+          "enum": 0
+        },
+        {
+          "name": "Sell",
+          "enum": 1
+        }
+      ]
+    }
+  ]
+}

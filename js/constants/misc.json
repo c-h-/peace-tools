@@ -1,0 +1,11 @@
+{
+  "DELIMETER": "::::",
+  "SYM_DELIMETER": "::",
+  "apiTypes": {
+    "QUANDL": 0
+  },
+  "chartModes": {
+    "SUM": 0,
+    "COMPARE": 1
+  }
+}

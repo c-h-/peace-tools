@@ -1,0 +1,11 @@
+{
+  "ID": 0,
+  "PID": 1,
+  "TYPE": 2,
+  "SYMBOL": 3,
+  "T_TYPE": 4,
+  "DATE": 5,
+  "AMOUNT": 6,
+  "SHARES": 7,
+  "NOTES": 8
+}
