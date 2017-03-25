@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 
 import Icon from '../../components/Icon';
+import Link from '../../components/Link';
 
 import styles from './styles';
 
@@ -21,13 +22,12 @@ const Hello = () => {
           need I built this tool.
         </Text>
         <Text style={styles.Text}>
-          <a
+          <Link
             href="https://github.com/c-h-/peace-tools/issues"
-            target="_blank"
-            rel="noopenner noreferrer"
+            style={{ color: '#106ba3' }}
           >
             Please report issues and bugs.
-          </a>
+          </Link>
         </Text>
         <Text style={styles.Text} />
 
