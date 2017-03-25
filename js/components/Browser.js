@@ -42,6 +42,12 @@ const icon = {
 };
 
 class Browser extends Component {
+  /**
+   * When app served over HTTPS things are picky. Load HTTPS bing URLs.
+   */
+  static qualifyURL = url => url.indexOf('http://www.bing.com') === 0
+      ? `https${url.slice('http'.length)}`
+      : url;
   static propTypes = {
     route: PropTypes.string,
     dispatch: PropTypes.func,
@@ -55,8 +61,22 @@ class Browser extends Component {
       this.iframe.src = '';
     }
   }
+  /**
+   * When a page loads in less than 800 ms, load it in new tab (catches errors)
+   */
   loadHandler = (ev) => {
-    // console.log('Load!', ev.nativeEvent);
+    const {
+      route,
+    } = this.props;
+    const now = new Date().getTime();
+    if (
+      !this.time
+      || now - this.time < 900
+    ) {
+      this.closeHandler();
+      window.open(Browser.qualifyURL(route), '_blank');
+    }
+    console.log('Load!', now - this.time, ev.nativeEvent);
   }
   refreshHandler = () => {
     if (this.iframe) {
@@ -110,10 +130,13 @@ class Browser extends Component {
           </View>
         </View>
         <iframe
-          src={route}
+          src={Browser.qualifyURL(route)}
           onLoad={this.loadHandler}
           style={browser}
-          ref={ref => (this.iframe = ref)}
+          ref={(ref) => {
+            this.iframe = ref;
+            this.time = new Date().getTime();
+          }}
         />
       </View>
     );
