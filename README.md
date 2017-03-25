@@ -3,6 +3,8 @@
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/c-h-/universal-native-boilerplate)
 
+### `Alpha Release! Not stable. Back up data regularly using Excel Export.`
+
 ## Introduction
 When I was looking around for a tool that would help me keep track of diverse portfolios it was hard to find a good, free solution that I could trust. For that need I built this tool.
 
@@ -27,3 +29,9 @@ command | notes
 `gulp build web` | Build dev version
 `gulp run web --production` | Run prod version
 `gulp build web --production` | Build prod version
+
+### Chart Update Flow
+To help performance this app caches aggressively and does most networking and data shaping in web workers. This leads to a bit more complex flow from clicking "Compute" to seeing the data plotted. This diagram may help navigate the structure.
+
+
+![Chart Update Flow](/boilerplate/docs/images/chart_update_flow.png?raw=true)

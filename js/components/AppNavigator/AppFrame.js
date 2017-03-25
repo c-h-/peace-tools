@@ -10,6 +10,10 @@ import {
 import {
   addNavigationHelpers,
 } from 'react-navigation';
+import {
+  Intent,
+} from '@blueprintjs/core';
+import ActionTypes from '../../redux/action_types.json';
 
 import SceneContainer from './SceneContainer';
 import CustomTabBar from '../CustomTabBar';
@@ -34,10 +38,53 @@ const styles = StyleSheet.create({
 });
 
 class AppFrame extends Component {
+  static contextTypes = {
+    store: PropTypes.object,
+  }
   static propTypes = {
     navigation: PropTypes.object,
     router: PropTypes.object,
     tabBarOptions: PropTypes.object,
+  }
+  componentDidMount() {
+    const {
+      dispatch,
+    } = this.context.store;
+    setTimeout(() => {
+      dispatch({
+        type: ActionTypes.ERROR,
+        payload: {
+          intent: Intent.NONE,
+          icon: 'thumbs-up',
+          msg: 'Peace Tools is currently in Alpha. Please report bugs'
+            + ' and issues. Thanks for being here!',
+        },
+      });
+    }, 5000);
+    if (document.location.protocol.indexOf('https') > -1) {
+      setTimeout(() => {
+        dispatch({
+          type: ActionTypes.ERROR,
+          payload: {
+            intent: Intent.WARNING,
+            icon: 'warning',
+            msg: (
+              <span>
+                Autocomplete only works over HTTP. Please visit&nbsp;
+                <a
+                  href="http://peace.tools"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  http://peace.tools
+                </a>
+                &nbsp;for autocomplete support.
+              </span>
+            ),
+          },
+        });
+      }, 8000);
+    }
   }
   /**
    * Go to top of viewport on web when navigation changes

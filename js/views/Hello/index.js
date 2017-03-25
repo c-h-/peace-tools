@@ -12,11 +12,22 @@ const Hello = () => {
   return (
     <View style={styles.container}>
       <View className="pt-card pt-elevation-2">
-        <h2>Hello!</h2>
+        <h1>Peace Tools <span style={{ color: '#999' }}>Alpha Release</span></h1>
+        <Text style={styles.Text} />
+        <h3><Icon name="face" /> Note from Developer</h3>
         <Text style={styles.Text}>
           When I was looking around for a tool that would help me keep track of diverse
           portfolios it was hard to find a good, free solution that I could trust. For that
           need I built this tool.
+        </Text>
+        <Text style={styles.Text}>
+          <a
+            href="https://github.com/c-h-/peace-tools/issues"
+            target="_blank"
+            rel="noopenner noreferrer"
+          >
+            Please report issues and bugs.
+          </a>
         </Text>
         <Text style={styles.Text} />
 

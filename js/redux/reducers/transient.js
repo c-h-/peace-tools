@@ -34,10 +34,12 @@ export default function transient(state = initState, action) {
     }
     case ActionTypes.ERROR: {
       // SPECIAL CASE where we need to dispatch the toast but not actually save anything
+      const intent = action.payload.intent || Blueprint.Intent.DANGER;
+      const iconName = action.payload.iconName || 'error';
       Toaster.show({
         message: action.payload.msg,
-        intent: Blueprint.Intent.DANGER,
-        iconName: 'error',
+        intent,
+        iconName,
       });
       return state;
     }
